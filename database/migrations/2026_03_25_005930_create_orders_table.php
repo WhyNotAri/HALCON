@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('invoice_number');
             $table->foreignId('customer_id')->constrained('costumers');
-            $table->foreignId('status_id')->constrained('status');
+            $table->enum('status', ['ordered','in_process','in_route','delivered'])->default('ordered');
             $table->timestamp('order_date');
             $table->text('delivery_address');
             $table->text('notes')->nullable();
