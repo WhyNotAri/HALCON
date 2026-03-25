@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('rfc')->nullable();
             $table->string('business_name')->nullable();
-            $table->string('fiscal_adress')->nullable();
+            $table->string('fiscal_address')->nullable();
             $table->string('postal_code')->nullable();
             $table->timestamps();
         });
