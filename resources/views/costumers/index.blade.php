@@ -36,6 +36,7 @@
                     <td>{{ $costumer->business_name }}</td>
                     <td>{{ $costumer->fiscal_address }}</td>
                     <td>{{ $costumer->postal_code }}</td>
+                    <td><a href="{{ route('costumers.show', $costumer->id) }}">View</a></td>
                 </tr>
             @endforeach
         </tbody>

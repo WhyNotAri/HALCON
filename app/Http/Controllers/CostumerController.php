@@ -64,7 +64,17 @@ class CostumerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $costumer = Costumer::findOrFail($id);
+        $costumer->update([
+            'costumer_number' => $request->costumer_number,
+            'name' => $request->name,
+            'rfc' => $request->rfc,
+            'business_name' => $request->business_name,
+            'fiscal_address' => $request->fiscal_address,
+            'postal_code' => $request->postal_code
+        ]);
+
+        return redirect()->route('costumers.show', $costumer->id);
     }
 
     /**
@@ -72,6 +82,9 @@ class CostumerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $costumer = Costumer::findOrFail($id);
+        $costumer->delete();
+
+        return redirect()->route('costumers.index');
     }
 }
