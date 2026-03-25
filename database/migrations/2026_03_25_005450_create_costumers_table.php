@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('costumer_number')->unique();
             $table->string('name');
-            $table->text('fiscal_data');
+            $table->string('rfc')->nullable();
+            $table->string('business_name')->nullable();
+            $table->string('fiscal_adress')->nullable();
+            $table->string('postal_code')->nullable();
             $table->timestamps();
         });
     }
