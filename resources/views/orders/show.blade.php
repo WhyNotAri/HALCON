@@ -64,6 +64,29 @@
         </div>
     </div>
     
+    <!-- Change Status Form -->
+    <div>
+        <h3>Change Status</h3>
+        <form action="{{ route('orders.updateStatus', $order->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <select name="status" required>
+                <option value="ordered" {{ $order->status == 'ordered' ? 'selected' : '' }}>ordered</option>
+                <option value="in_process" {{ $order->status == 'in_process' ? 'selected' : '' }}>in process</option>
+                <option value="in_route" {{ $order->status == 'in_route' ? 'selected' : '' }}>in route</option>
+                <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>delivered</option>
+            </select>
+            <button type="submit">Update Status</button>
+        </form>
+    </div>
+
+    <!-- Evidences Section -->
+    <div>
+        <h3>Evidences</h3>
+        <button>
+            <a href="{{ route('evidences.index', $order->id) }}">View All Evidences</a>
+        </button>
+    </div>
     
 </body>
 </html>
