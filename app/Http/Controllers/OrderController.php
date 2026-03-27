@@ -94,4 +94,26 @@ class OrderController extends Controller
 
         return redirect()->route('orders.index');
     }
+
+    /**
+     * Update order status and redirect to evidence if needed
+     */
+    public function updateStatus(Request $request, string $id)
+    {
+        $order = Order::findOrFail($id);
+        $newStatus = $request->status;
+        
+        $order->update([
+            'status' => $newStatus
+        ]);
+        
+        if ($newStatus == 'in_route' || $newStatus == 'delivered') {
+            return redirect()->route('evidences.create', [
+                'order_id' => $order->id,
+                'type' => $newStatus
+            ]);
+        }
+        
+        return redirect()->route('orders.show', $order->id);
+    }
 }

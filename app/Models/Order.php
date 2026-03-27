@@ -18,4 +18,8 @@ class Order extends Model
     public function costumer() {
         return $this->belongsTo(Costumer::class);
     }
+    
+    public function evidences() {
+        return $this->hasMany(Evidence::class);
+    }
 }
