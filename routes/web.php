@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CostumerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\EvidenceController;
+use App\Http\Controllers\UserController;
 
-//Oostumer and Order routes
+//Oostumer, Order and user routes
 Route::resource('costumers', CostumerController::class);
 Route::resource('orders', OrderController::class);
+Route::resource('users', UserController::class);
 
 //Evidence routes
 Route::get('orders/{order_id}/evidences', [EvidenceController::class, 'index'])->name('evidences.index');
