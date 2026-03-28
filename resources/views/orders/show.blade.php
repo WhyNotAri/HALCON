@@ -8,6 +8,10 @@
 <body>
     <h1>Invoice: {{ $order->invoice_number }}</h1>
 
+    <!-- Back to Dashboard -->
+    <button>
+    <a href="{{ route('dashboard') }}">Back to Dashboard</a>
+    </button>
     <!-- Back to Orders List Button -->
     <button>
         <a href="{{ route('orders.index') }}">Back to Orders List</a>
