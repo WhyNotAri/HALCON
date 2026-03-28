@@ -6,10 +6,6 @@
     <title>{{config('app.name', 'Laravel')}}</title>
 </head>
 
-<button>
-    <a href="{{ route('dashboard') }}">Back to Dashboard</a>
-</button>
-
 <body>
 
     <h1>Costumers List</h1>
