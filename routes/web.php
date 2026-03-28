@@ -5,6 +5,10 @@ use App\Http\Controllers\CostumerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\EvidenceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+
+// Dashboard route
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 //Oostumer, Order and user routes
 Route::resource('costumers', CostumerController::class);
