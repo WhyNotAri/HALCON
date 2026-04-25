@@ -24,10 +24,11 @@
         <thead>
             <tr>
                 <th>Invoice Number</th>
-                <th>Customer ID</th>
+                <th>Customer</th>
                 <th>Status</th>
                 <th>Order Date</th>
                 <th>Delivery Address</th>
+                <th>Products</th>
                 <th>Notes</th>
             </tr>
         </thead>
@@ -36,10 +37,15 @@
             @foreach($orders as $order)
                 <tr>
                     <td>{{ $order->invoice_number }}</td>
-                    <td>{{ $order->customer_id }}</td>
+                    <td>{{ $order->costumer->name ?? 'Unknown Costumer' }}</td>
                     <td>{{ $order->status }}</td>
                     <td>{{ $order->order_date }}</td>
                     <td>{{ $order->delivery_address }}</td>
+                    <td>
+                        @foreach($order->products as $product)
+                            {{ $product->name }} ({{ $product->pivot->quantity ?? 1 }}){{ !$loop->last ? ', ' : '' }}
+                        @endforeach
+                    </td>
                     <td>{{ $order->notes }}</td>
                     <td><button><a href="{{ route('orders.show', $order->id) }}">View</a></button></td>
                 </tr>
