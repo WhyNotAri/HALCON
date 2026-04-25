@@ -8,13 +8,18 @@
 
 <body>
 
+    <!-- Back to Dashboard button -->
+    <button>
+        <a href="{{ route('dashboard') }}">Back to Dashboard</a>
+    </button>
+
     <h1>Costumers List</h1>
 
     <!-- Create New Costumer Button -->
     <button>
         <a href="{{ route('costumers.create') }}">Create New Costumer</a>
     </button>
-    
+
     <!-- Costumers Table -->
     <table>
         <thead>
@@ -43,5 +48,4 @@
     </table>
 
 </body>
-
 </html>
