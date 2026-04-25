@@ -30,7 +30,7 @@
         <tr>
             <td><strong>Costumer Name:</strong></td>
             <td>
-                {{ $costumers->where('id', $order->customer_id)->first()->name ?? 'Unknown Costumer' }}
+                {{ $order->costumer->name ?? 'Unknown Costumer' }}
             </td>
         </tr>
         <tr>
@@ -49,9 +49,21 @@
             <td><strong>Notes:</strong></td>
             <td>{{ $order->notes }}</td>
         </tr>
+        <tr>
+            <td><strong>Products:</strong></td>
+            <td>
+                @if($order->products->isNotEmpty())
+                    @foreach($order->products as $product)
+                        {{ $product->name }} ({{ $product->pivot->quantity ?? 1 }}){{ !$loop->last ? ', ' : '' }}
+                    @endforeach
+                @else
+                    No products assigned
+                @endif
+            </td>
+        </tr>
     </table>
 
-    
+
     <!-- Order Options -->
     <div>
         <div>
@@ -67,7 +79,7 @@
             </form>
         </div>
     </div>
-    
+
     <!-- Change Status Form -->
     <div>
         <h3>Change Status</h3>
@@ -91,6 +103,6 @@
             <a href="{{ route('evidences.index', $order->id) }}">View All Evidences</a>
         </button>
     </div>
-    
+
 </body>
 </html>
