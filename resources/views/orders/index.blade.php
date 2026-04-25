@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
-
-<button>
-    <a href="{{ route('dashboard') }}">Back to Dashboard</a>
-</button>
-
 <body>
+
+    <!-- Back to Dashboard button -->
+    <button>
+        <a href="{{ route('dashboard') }}">Back to Dashboard</a>
+    </button>
+
     <h1>Orders</h1>
 
     <!-- Create New Order Button -->
