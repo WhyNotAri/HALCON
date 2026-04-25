@@ -14,12 +14,13 @@
         <a href="{{ route('costumers.index') }}">Costumers</a>
         <a href="{{ route('orders.index') }}">Orders</a>
         <a href="{{ route('users.index') }}">Users</a>
+        <a href="{{ route('products.index') }}">Products</a>
     </div>
 
     <hr>
 
     <!-- Statistics Cards -->
-    <table border="1">
+    <table>
         <tr>
             <th>Total Costumers</th>
             <th>Total Orders</th>
@@ -38,7 +39,7 @@
 
     <!-- Orders by Status -->
     <h3>Orders by Status</h3>
-    <table border="1">
+    <table>
         <tr>
             <th>Ordered</th>
             <th>In Process</th>
@@ -57,7 +58,7 @@
 
     <!-- Recent Orders -->
     <h3>Recent Orders (Last 5)</h3>
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>ID</th>

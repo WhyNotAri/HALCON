@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CostumerController;
 use App\Http\Controllers\OrderController;
@@ -10,10 +11,11 @@ use App\Http\Controllers\DashboardController;
 // Dashboard route
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-//Oostumer, Order and user routes
+//Costumer, Products, Order and user routes
 Route::resource('costumers', CostumerController::class);
 Route::resource('orders', OrderController::class);
 Route::resource('users', UserController::class);
+Route::resource('products', ProductController::class);
 
 //Evidence routes
 Route::get('orders/{order_id}/evidences', [EvidenceController::class, 'index'])->name('evidences.index');
