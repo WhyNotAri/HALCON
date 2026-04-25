@@ -22,4 +22,8 @@ class Order extends Model
     public function evidences() {
         return $this->hasMany(Evidence::class);
     }
+
+    public function products() {
+        return $this->belongsToMany(Product::class);
+    }
 }
