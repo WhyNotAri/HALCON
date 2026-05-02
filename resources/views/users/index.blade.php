@@ -17,7 +17,7 @@
         <a href="{{ route('users.create') }}">Create New User</a>
     </button>
 
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>ID</th>
@@ -35,7 +35,7 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->role }}</td>
+                <td>{{ $user->role?->name ?? '-' }}</td>
                 <td>{{ $user->department ?? '-' }}</td>
                 <td>{{ $user->is_active ? 'Active' : 'Inactive' }}</td>
                 <td>

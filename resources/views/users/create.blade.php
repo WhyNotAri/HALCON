@@ -33,12 +33,10 @@
 
         <div>
             <label>Role:</label>
-            <select name="role" required>
-                <option value="admin">Admin</option>
-                <option value="sales">Sales</option>
-                <option value="purchasing">Purchasing</option>
-                <option value="warehouse">Warehouse</option>
-                <option value="route">Route</option>
+            <select name="role_id" required>
+                @foreach($roles as $role)
+                    <option value="{{ $role->id }}">{{ ucfirst($role->name) }}</option>
+                @endforeach
             </select>
         </div>
 

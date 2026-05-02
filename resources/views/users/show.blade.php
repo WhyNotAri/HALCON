@@ -13,10 +13,10 @@
 
     <h1>User Details</h1>
 
-    <table border="1">
+    <table>
         <tr>
             <th>ID:</th>
-            <td>{{ $user->id }}外层
+            <td>{{ $user->id }}</td>
         </tr>
         <tr>
             <th>Name:</th>
@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <th>Role:</th>
-            <td>{{ $user->role }}</td>
+            <td>{{ $user->role?->name ?? '-' }}</td>
         </tr>
         <tr>
             <th>Department:</th>

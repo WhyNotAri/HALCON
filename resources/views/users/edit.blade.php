@@ -34,12 +34,12 @@
 
         <div>
             <label>Role:</label>
-            <select name="role" required>
-                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                <option value="sales" {{ $user->role == 'sales' ? 'selected' : '' }}>Sales</option>
-                <option value="purchasing" {{ $user->role == 'purchasing' ? 'selected' : '' }}>Purchasing</option>
-                <option value="warehouse" {{ $user->role == 'warehouse' ? 'selected' : '' }}>Warehouse</option>
-                <option value="route" {{ $user->role == 'route' ? 'selected' : '' }}>Route</option>
+            <select name="role_id" required>
+                @foreach($roles as $role)
+                    <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>
+                        {{ ucfirst($role->name) }}
+                    </option>
+                @endforeach
             </select>
         </div>
 

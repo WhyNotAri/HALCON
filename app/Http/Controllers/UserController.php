@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('role')->get();
 
         return view('users.index', compact('users'));
     }
@@ -23,7 +24,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -35,7 +38,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role_id' => $request->role_id,
             'department' => $request->department,
             'is_active' => $request->is_active ?? true
         ]);
@@ -59,8 +62,9 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
+        $roles = Role::all();
 
-        return view('users.edit', compact('user'));
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -73,7 +77,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
+            'role_id' => $request->role_id,
             'department' => $request->department,
             'is_active' => $request->is_active
         ]);
