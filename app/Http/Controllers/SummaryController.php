@@ -29,7 +29,7 @@ class SummaryController extends Controller
 
         $recentOrders = Order::latest()->take(5)->get();
 
-        return view('summary', compact(
+        return view('summary.summary', compact(
             'totalCostumers',
             'totalOrders',
             'totalEvidences',
