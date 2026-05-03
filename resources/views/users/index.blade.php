@@ -7,7 +7,7 @@
 </head>
 
 <button>
-    <a href="{{ route('dashboard') }}">Back to Dashboard</a>
+    <a href="{{ route('summary') }}">Back to Summary</a>
 </button>
 
 <body>
@@ -26,7 +26,6 @@
                 <th>Role</th>
                 <th>Department</th>
                 <th>Status</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -38,18 +37,11 @@
                 <td>{{ $user->role?->name ?? '-' }}</td>
                 <td>{{ $user->department ?? '-' }}</td>
                 <td>{{ $user->is_active ? 'Active' : 'Inactive' }}</td>
-                <td>
-                    <a href="{{ route('users.show', $user->id) }}">View</a>
-                    <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Delete this user?')">Delete</button>
-                    </form>
-                </td>
+                <td><button><a><a href="{{ route('users.show', $user->id) }}">View</a></a></button></td>
             </tr>
             @endforeach
         </tbody>
     </table>
+
 </body>
 </html>

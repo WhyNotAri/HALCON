@@ -7,11 +7,19 @@
 </head>
 
 <body>
+
+    <!-- Back to Summary Button -->
     <button>
-        <a href="{{ route('users.index') }}">Back to Users List</a>
+        <a href="{{ route('summary') }}">Back to Summary</a>
     </button>
 
     <h1>User Details</h1>
+
+    <!-- Back to Users List Button -->
+
+    <button>
+        <a href="{{ route('users.index') }}">Back to Users List</a>
+    </button>
 
     <table>
         <tr>
@@ -44,10 +52,20 @@
         </tr>
     </table>
 
-    <div>
-        <button>
-            <a href="{{ route('users.edit', $user->id) }}">Edit User</a>
-        </button>
-    </div>
+    <dvi>
+        <div>
+            <button>
+                <a href="{{ route('users.edit', $user->id) }}">Edit User</a>
+            </button>
+        </div>
+        <div>
+            <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" onclick="return confirm('Delete this user?')">Delete</button>
+            </form>
+        </div>
+    </dvi>
+
 </body>
 </html>

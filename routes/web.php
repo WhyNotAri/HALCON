@@ -6,10 +6,10 @@ use App\Http\Controllers\CostumerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\EvidenceController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SummaryController;
 
 // Dashboard route
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/summary', [SummaryController::class, 'index'])->name('summary');
 
 //Costumer, Products, Order and user routes
 Route::resource('costumers', CostumerController::class);

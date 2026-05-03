@@ -13,7 +13,7 @@
 
     <h1>Evidence Details</h1>
 
-    <table border="1">
+    <table>
         <tr>
             <th>Order ID:</th>
             <td>{{ $evidence->order_id }}</td>
@@ -25,7 +25,7 @@
         <tr>
             <th>Image:</th>
             <td>
-                <img src="{{ asset('storage/' . $evidence->image_path) }}" width="400">
+                <img src="{{ asset('storage/' . $evidence->image_path) }}" width="400" alt="Evidence Image">
             </td>
         </tr>
         <tr>

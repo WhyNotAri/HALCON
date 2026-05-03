@@ -7,12 +7,17 @@
 </head>
 <body>
 
+<!-- Back to Summary Button -->
+<button>
+    <a href="{{ route('summary') }}">Back to Summary</a>
+</button>
+
+<h1>{{ $products->name }}</h1>
+
 <!-- Back to Products List Button -->
 <button>
     <a href="{{ route('products.index') }}">Back to Products List</a>
 </button>
-
-<h1>{{ $products->name }}</h1>
 
 <!-- Product Details Table -->
 <table>

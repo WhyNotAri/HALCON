@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    
+
     <!-- Back to Orders List Button -->
     <button>
         <a href="{{ route('orders.index') }}">Back to Orders List</a>

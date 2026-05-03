@@ -8,7 +8,7 @@ use App\Models\Order;
 use App\Models\Evidence;
 use App\Models\User;
 
-class DashboardController extends Controller
+class SummaryController extends Controller
 {
     /**
      * Display the dashboard with statistics.
@@ -19,17 +19,17 @@ class DashboardController extends Controller
         $totalOrders = Order::count();
         $totalEvidences = Evidence::count();
         $totalUsers = User::count();
-        
+
         $ordersByStatus = [
             'ordered' => Order::where('status', 'ordered')->count(),
             'in_process' => Order::where('status', 'in_process')->count(),
             'in_route' => Order::where('status', 'in_route')->count(),
             'delivered' => Order::where('status', 'delivered')->count(),
         ];
-        
+
         $recentOrders = Order::latest()->take(5)->get();
 
-        return view('dashboard', compact(
+        return view('summary', compact(
             'totalCostumers',
             'totalOrders',
             'totalEvidences',

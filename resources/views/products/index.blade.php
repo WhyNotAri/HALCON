@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<!-- Back to Dashboard button -->
+<!-- Back to Summary button -->
 <button>
-    <a href="{{ route('dashboard') }}">Back to Dashboard</a>
+    <a href="{{ route('summary') }}">Back to Summary</a>
 </button>
 
 <h1>Products</h1>
@@ -42,7 +42,6 @@
     @endforeach
     </tbody>
 </table>
-
 
 </body>
 </html>

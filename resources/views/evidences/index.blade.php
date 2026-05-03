@@ -14,9 +14,9 @@
     <h1>Evidences - Order #{{ $order->invoice_number }}</h1>
 
     @if($evidences->count())
-        <table border="1">
+        <table>
             <thead>
-                32
+                <tr>
                     <th>ID</th>
                     <th>Type</th>
                     <th>Image</th>
